@@ -14,7 +14,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { LoginComponent } from './auth/login/login.component';
-
+import { ProductGridComponent } from './shop/product-grid/product-grid.component';
+import { TiendaComponent } from './shop/tienda/tienda.component';
+import { CartComponent } from './shop/cart/cart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,11 +32,16 @@ import { LoginComponent } from './auth/login/login.component';
     DashboardComponent,
     PlanesComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    AppComponent,
+    TiendaComponent,
+    ProductGridComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

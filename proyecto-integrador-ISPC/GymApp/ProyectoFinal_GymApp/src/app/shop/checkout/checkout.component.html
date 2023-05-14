@@ -1,1 +1,60 @@
-<p>checkout works!</p>
+<div class="checkout">
+    <h2>Checkout</h2>
+    <div class="checkout-summary">
+      <h3>Resumen del pedido</h3>
+      <ul>
+        <li *ngFor="let item of cartItems">
+          {{ item.product.name }} x {{ item.quantity }} - {{ item.product.price | currency }}
+        </li>
+      </ul>
+      <p>Total: {{ cartTotal | currency }}</p>
+    </div>
+    <div class="checkout-shipping">
+      <h3>Envío</h3>
+      <form>
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" [(ngModel)]="shipping.name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" [(ngModel)]="shipping.email" required />
+        </div>
+        <div class="form-group">
+          <label for="address">Dirección:</label>
+          <input type="text" id="address" name="address" [(ngModel)]="shipping.address" required />
+        </div>
+        <div class="form-group">
+          <label for="city">Ciudad:</label>
+          <input type="text" id="city" name="city" [(ngModel)]="shipping.city" required />
+        </div>
+        <div class="form-group">
+          <label for="state">Estado:</label>
+          <input type="text" id="state" name="state" [(ngModel)]="shipping.state" required />
+        </div>
+        <div class="form-group">
+          <label for="zipcode">Código postal:</label>
+          <input type="text" id="zipcode" name="zipcode" [(ngModel)]="shipping.zipcode" required />
+        </div>
+      </form>
+    </div>
+    <div class="checkout-payment">
+      <h3>Pago</h3>
+      <form>
+        <div class="form-group">
+          <label for="cardnumber">Número de tarjeta:</label>
+          <input type="text" id="cardnumber" name="cardnumber" [(ngModel)]="payment.cardNumber" required />
+        </div>
+        <div class="form-group">
+          <label for="expdate">Fecha de expiración:</label>
+          <input type="text" id="expdate" name="expdate" [(ngModel)]="payment.expDate" required />
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" [(ngModel)]="payment.cvv" required />
+        </div>
+      </form>
+    </div>
+    <button (click)="placeOrder()">Realizar pedido</button>
+  </div>
+  

@@ -1,1 +1,35 @@
-<p>cart works!</p>
+<div class="cart" [class.open]="isCartOpen" (mouseleave)="hideCart()">
+    <h2>Carrito</h2>
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <div class="cart-item-image">
+          <img [src]="item.product.imageUrl" alt="{{ item.product.name }}" />
+        </div>
+        <div class="cart-item-details">
+          <h4>{{ item.product.name }}</h4>
+          <p class="price">{{ item.product.price | currency }}</p>
+          <div class="cart-item-quantity">
+            <label>Cantidad:</label>
+            <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="updateCartItem(item)" />
+          </div>
+          <div class="cart-item-color">
+            <label>Color:</label>
+            <select [(ngModel)]="item.color" (ngModelChange)="updateCartItem(item)">
+              <option *ngFor="let color of item.product.colors" [value]="color">{{ color }}</option>
+            </select>
+          </div>
+          <div class="cart-item-size">
+            <label>Tamaño:</label>
+            <select [(ngModel)]="item.size" (ngModelChange)="updateCartItem(item)">
+              <option *ngFor="let size of item.product.sizes" [value]="size">{{ size }}</option>
+            </select>
+          </div>
+          <button (click)="removeCartItem(item)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <p class="cart-total">Total: {{ cartTotal | currency }}</p>
+      <button (click)="checkout()">Comprar</button>
+    </div>
+  </div>
