@@ -17,7 +17,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { ProductGridComponent } from './shop/product-grid/product-grid.component';
 import { TiendaComponent } from './shop/tienda/tienda.component';
 import { CartComponent } from './shop/cart/cart.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule, 
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
