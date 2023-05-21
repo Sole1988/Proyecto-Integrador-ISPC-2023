@@ -10,7 +10,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { TiendaComponent } from './shop/tienda/tienda.component';
-
+import { CheckoutComponent } from '../app/shop/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'tienda', component: TiendaComponent},
   {path:'login', component: LoginComponent},
   {path:'registro', component: RegistroComponent},
-
+  {path:'checkout', component: CheckoutComponent},
   {path:'**', component: HomeComponent}
 
 ];

@@ -19,6 +19,10 @@ import { TiendaComponent } from './shop/tienda/tienda.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { CartService } from './shop/cart/cart.service';
+import { CurrencyPipe } from '@angular/common';
+import { CheckoutComponent } from './shop/checkout/checkout.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,8 +41,9 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     TiendaComponent,
     ProductGridComponent,
-    CartComponent
-  ],
+    CartComponent,
+    CheckoutComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,7 +51,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule, 
     HttpClientModule,
   ],
-  providers: [],
+  providers: [CartService, CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

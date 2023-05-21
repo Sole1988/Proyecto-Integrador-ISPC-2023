@@ -1,35 +1,51 @@
 <div class="cart" [class.open]="isCartOpen" (mouseleave)="hideCart()">
-    <h2>Carrito</h2>
-    <div class="cart-items">
-      <div class="cart-item" *ngFor="let item of cartItems">
-        <div class="cart-item-image">
-          <img [src]="item.product.imageUrl" alt="{{ item.product.name }}" />
+  <h3>Carrito de Compras</h3>
+  <table class="table table-danger table-striped">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container class="ngcont" *ngFor="let product of items">
+        <tr class="tr">
+          <td><div class="cart-item-image">
+            <img [src]="product.image" alt="{{ product.name }}" />
+          </div>
+             {{ product.name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.price | currency:'ARS' }}
+            <button (click)="removeCartItem(product)"><i class="fas fa-trash text-danger"></i></button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+
+        <!--
+        <div class="cart-item-color">
+          <label>Color:</label>
+          <select [(ngModel)]="item.color" (ngModelChange)="updateCartItem(item)">
+            <option *ngFor="let color of item.product?.colors" [value]="color">{{ color }}</option>
+          </select>
         </div>
-        <div class="cart-item-details">
-          <h4>{{ item.product.name }}</h4>
-          <p class="price">{{ item.product.price | currency }}</p>
-          <div class="cart-item-quantity">
-            <label>Cantidad:</label>
-            <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="updateCartItem(item)" />
-          </div>
-          <div class="cart-item-color">
-            <label>Color:</label>
-            <select [(ngModel)]="item.color" (ngModelChange)="updateCartItem(item)">
-              <option *ngFor="let color of item.product.colors" [value]="color">{{ color }}</option>
-            </select>
-          </div>
-          <div class="cart-item-size">
-            <label>Tamaño:</label>
-            <select [(ngModel)]="item.size" (ngModelChange)="updateCartItem(item)">
-              <option *ngFor="let size of item.product.sizes" [value]="size">{{ size }}</option>
-            </select>
-          </div>
-          <button (click)="removeCartItem(item)">Eliminar</button>
+        <div class="cart-item-size">
+          <label>Tamaño:</label>
+          <select [(ngModel)]="item.size" (ngModelChange)="updateCartItem(item)">
+            <option *ngFor="let size of item.product?.sizes" [value]="size">{{ size }}</option>
+          </select>
         </div>
-      </div>
-    </div>
-    <div class="cart-summary">
-      <p class="cart-total">Total: {{ cartTotal | currency }}</p>
-      <button (click)="checkout()">Comprar</button>
-    </div>
+        -->
+       
+      
+  
+
+
+  <div class="cart-summary">
+    <p class="cart-total">Total: {{ calculateTotal() | currency }}</p>
+    <button (click)="placeOrder()">Comprar</button>
   </div>
+</div>
