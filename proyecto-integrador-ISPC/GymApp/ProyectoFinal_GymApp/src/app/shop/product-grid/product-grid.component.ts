@@ -18,6 +18,7 @@ export class ProductGridComponent implements OnInit {
     this.products = productService.getProducts();
     console.log('Products:', this.products);
   }
+  
   getItems() {
     return this.items;
   }
@@ -41,6 +42,7 @@ export class ProductGridComponent implements OnInit {
     console.log('Product selected:', product);}
     
   ngOnInit(): void {
+    
   }
 }
 

@@ -5,7 +5,7 @@
       <img [src]="product.image" alt="{{ product.name }}" />
       <h3>{{ product.name }}</h3>
       <p class="price">{{ product.price | currency }}</p>
-      <p class="description">Descripción: {{ product.description }}</p>
+      <p class="description"> {{ product.description }}</p>
      <button (click)="viewProduct(product)">Ver detalle {{ product.name }}</button>
      <button class="product-detail-add-to-cart" (click)="addToCart(product)">Agregar al carrito</button>  
     </div>
