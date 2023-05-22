@@ -109,6 +109,7 @@ header {
     display: block;
   }
   .btn-carrito{
+   font-size: 12px;
   width: 10%;
   position:absolute;
   height:84px; 

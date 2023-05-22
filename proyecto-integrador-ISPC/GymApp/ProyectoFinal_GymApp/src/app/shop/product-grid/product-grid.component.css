@@ -1,13 +1,13 @@
 
 
 
-i{  
+.i{  
   font-size:15px;
   transition:1s;
   cursor:pointer;
   color:#aeaeae
 }
-i:hover{
+.i:hover{
   transform: scale(1.25) rotate(100deg); 
   color:#d42418;
   
@@ -89,7 +89,7 @@ i:hover{
     border-radius: 1px;
     cursor: pointer;
     transition: all 0.10s ease;
-    height: 4.6rem;
+    height: 4rem;
   }
   
   .product-card button:hover {
